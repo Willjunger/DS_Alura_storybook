@@ -31,43 +31,33 @@ const SectionEstilizada = styled.section<{ selecionado: boolean }>`
         font-size: 12px;
     }
 `
+export interface AbGrupoOpcao {
+    id: number,
+    titulo: string,
+    corpo: string,
+    rodape: string
+}
 
-export const AbGrupoOpcoes = () => {
+export interface AbGrupoOpcoesProps {
+    opcoes: AbGrupoOpcao[]
+}
+
+export const AbGrupoOpcoes = ({ opcoes }: AbGrupoOpcoesProps) => {
     return (
         <>
-            <SectionEstilizada selecionado={false}>
-                <header>
-                    E-book
-                </header>
-                <div>
-                    <strong>R$ 00,00</strong>
-                </div>
-                <footer>
-                    .pdf, .epub, .mob
-                </footer>
-            </SectionEstilizada>
-            <SectionEstilizada selecionado={true}>
-                <header>
-                    E-book
-                </header>
-                <div>
-                    <strong>R$ 00,00</strong>
-                </div>
-                <footer>
-                    .pdf, .epub, .mob
-                </footer>
-            </SectionEstilizada>
-            <SectionEstilizada selecionado={false}>
-                <header>
-                    E-book
-                </header>
-                <div>
-                    <strong>R$ 00,00</strong>
-                </div>
-                <footer>
-                    .pdf, .epub, .mob
-                </footer>
-            </SectionEstilizada>
+            {opcoes.map(opcao =>
+                <SectionEstilizada key={opcao.id} selecionado={false}>
+                    <header>
+                        {opcao.titulo}
+                    </header>
+                    <div>
+                        <strong>{opcao.corpo}</strong>
+                    </div>
+                    <footer>
+                        {opcao.rodape}
+                    </footer>
+                </SectionEstilizada>
+            )}
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { AbGrupoOpcoes } from "../src/componentes/AbGrupoOpcoes";
+import { AbGrupoOpcoes, AbGrupoOpcoesProps } from "../src/componentes/AbGrupoOpcoes";
 
 export default {
     title: 'Componentes/AbGrupoOpcoes',
@@ -9,8 +9,29 @@ export default {
 
 } as ComponentMeta<typeof AbGrupoOpcoes>
 
-const Template: ComponentStory<typeof AbGrupoOpcoes> = (args) => <AbGrupoOpcoes />
+const Template: ComponentStory<typeof AbGrupoOpcoes> = (args) => <AbGrupoOpcoes {...args} />
 
-export const Default = Template.bind({})
+export const Padrao = Template.bind({})
 
-Default.args = {}
+Padrao.args = {
+    opcoes: [
+        {
+            id: 1,
+            titulo: 'E-book',
+            corpo: 'R$ 00,00',
+            rodape: '.pdf, .epub, .mob',
+        },
+        {
+            id: 2,
+            titulo: 'Impresso',
+            corpo: 'R$ 00,00',
+            rodape: '.pdf, .epub, .mob',
+        },
+        {
+            id: 3,
+            titulo: 'Impresso + E-book',
+            corpo: 'R$ 00,00',
+            rodape: '.pdf, .epub, .mob',
+        },
+    ]
+} as AbGrupoOpcoesProps
