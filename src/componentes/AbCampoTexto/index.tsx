@@ -37,6 +37,7 @@ export const AbCampoTexto = ({ label, value, onChange, type = 'text' }: AbCampoT
         <div>
             <LabelEstilizada>
                 {label}
+
             </LabelEstilizada>
             <InputEstilizado type={type} value={value} onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange(event.target.value)} />
         </div>
